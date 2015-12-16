@@ -2,7 +2,7 @@
 ;;; Package Settings ;;;
 ;----------------------;
 
-;; set package archives
+;; Set package archives
 (require 'package)
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
@@ -19,14 +19,14 @@
                       nlinum
                       pos-tip))
 
-; activate all the packages (in particular autoloads)
+;; Activate all the packages (in particular autoloads)
 (package-initialize)
 
-; fetch the list of packages available
+;; Fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
-; install the missing packages
+;; Install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
