@@ -95,6 +95,7 @@
 ;; Autopair
 (autopair-global-mode)
 
+;; Magit
 
 ;------------------;
 ;; Misc. Settings ;;
