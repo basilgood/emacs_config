@@ -16,6 +16,7 @@
                       company
                       elpy
                       fill-column-indicator
+                      magit
                       nlinum
                       pos-tip))
 
