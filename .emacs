@@ -16,6 +16,7 @@
                       company
                       elpy
                       fill-column-indicator
+                      magit
                       nlinum
                       pos-tip))
 
@@ -95,6 +96,7 @@
 ;; Autopair
 (autopair-global-mode)
 
+;; Magit
 
 ;------------------;
 ;; Misc. Settings ;;
