@@ -16,7 +16,9 @@
                       company
                       elpy
                       fill-column-indicator
+                      find-file-in-project
                       magit
+                      neotree
                       nlinum
                       pos-tip))
 
@@ -96,6 +98,36 @@
 ;; Autopair
 (autopair-global-mode)
 
+;; Magit settings
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; neotree settings
+(require 'neotree)
+(setq neo-theme 'ascii)
+(custom-set-faces
+  '(neo-banner-face ((t . (:inherit shadow))) t)
+  '(neo-header-face ((t . (:inherit shadow))) t)
+  '(neo-root-dir-face ((t . (:inherit link-visited :underline nil))) t)
+  '(neo-dir-link-face ((t . (:inherit dired-directory))) t)
+  '(neo-file-link-face ((t . (:inherit default))) t)
+  '(neo-button-face ((t . (:inherit dired-directory))) t)
+  '(neo-expand-btn-face ((t . (:inherit button))) t)
+  )
+(setq neo-smart-open t)
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (ffip-project-root))
+        (file-name (buffer-file-name)))
+    (if project-dir
+        (progn
+          (neotree-dir project-dir)
+          (neotree-find file-name))
+      (message "Could not find git project root."))))
+(global-set-key (kbd "C-c p") 'neotree-project-dir)
+(global-set-key (kbd "C-c h") 'neotree-hide)
+(define-key neotree-mode-map (kbd "I") #'neotree-enter-horizontal-split)
+(define-key neotree-mode-map (kbd "i") #'neotree-enter-vertical-split)
 
 ;------------------;
 ;; Misc. Settings ;;
