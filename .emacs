@@ -133,6 +133,17 @@
 ;; Misc. Settings ;;
 ;------------------;
 
+;; Commenting Settings
+(defun comment-or-uncomment-line-or-region ()
+  "Comments or uncomments the current line or region."
+  (interactive)
+  (if (region-active-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+  )
+)
+(global-set-key (kbd "M-/") 'comment-or-uncomment-line-or-region)
+
 (tool-bar-mode -1) ;; Disable the toolbar
 (menu-bar-mode -1) ;; Disable the menubar
 (defalias 'yes-or-no-p 'y-or-n-p) ;; Use 'y' or 'n' for 'yes' or 'no'
