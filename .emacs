@@ -140,9 +140,10 @@
   (if (region-active-p)
       (comment-or-uncomment-region (region-beginning) (region-end))
     (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+    )
   )
-)
 (global-set-key (kbd "M-/") 'comment-or-uncomment-line-or-region)
+(global-set-key (kbd "C-/") 'comment-or-uncomment-line-or-region)
 
 (tool-bar-mode -1) ;; Disable the toolbar
 (menu-bar-mode -1) ;; Disable the menubar
@@ -155,6 +156,7 @@
 
 ;; Keybindings
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-z") 'undo)
 
 ;; Font
 (set-default-font "Inconsolata 12")
